@@ -1,0 +1,39 @@
+//ZATLAS1G JOB (12345678),ZATLAS1,MSGCLASS=H,
+//        MSGLEVEL=(1,1),CLASS=A,NOTIFY=&SYSUID
+//***************************************************************
+//***************JCL CREATED BY ZEEV ATLAS  *********************
+//***************************************************************
+//DELETE  EXEC PGM=IDCAMS
+//SYSPRINT DD  DUMMY
+//SYSIN    DD  *
+ DELETE  (ZATLAS1.PCRE2.TESTGREP)
+ DELETE  (ZATLAS1.TEST.TEMP1.GREP)
+ DELETE  (ZATLAS1.TEST.TEMP2.GREP)
+ DELETE  (ZATLAS1.TEST.TEMP3.GREP)
+ SET MAXCC = 0
+//*******************************************************
+//CREATE  EXEC PGM=IEFBR14
+//DCBOUTO  DD  DSN=ZATLAS1.PCRE2.TESTGREP,
+//             DISP=(NEW,CATLG,DELETE),
+//             DCB=(DSORG=PS,RECFM=FB,LRECL=120),
+//             UNIT=SYSDA,SPACE=(TRK,(5,5))
+// SET PARM1=ZATLAS1
+//RUNIT    EXEC PGM=IRXJCL,PARM='RUNGREP &PARM1',COND=(0,NE)
+//STEPLIB  DD  DSN=ZATLAS1.PCRE2.LOADLIB,DISP=SHR
+//SYSEXEC  DD  DISP=SHR,DSN=ZATLAS1.PCRE2.CNTLLIB
+//*Standard stream ddname        Alternate ddname
+//*stdin           SYSIN         none
+//*stdout          SYSPRINT      SYSTERM, SYSERR
+//*stderr          MSGFILE ÝDD¨  None
+//*       64 bit:  SYSOUT
+//SYSIN    DD  DSN=ZATLAS1.PCRE2.TESTLIB(RUNGREP),DISP=SHR
+//SYSOUT   DD  DSN=ZATLAS1.PCRE2.TESTGREP,DISP=MOD
+//SYSTSPRT DD  SYSOUT=*
+//SYSPRINT DD  DSN=ZATLAS1.PCRE2.TESTGREP,DISP=MOD
+//*SYSPRINT DD  SYSOUT=*
+//SYSTERM  DD  SYSOUT=*
+//SYSERR   DD  SYSOUT=*
+//MSGFILE  DD  SYSOUT=*
+//STDERR   DD  SYSOUT=*
+//SYSTSIN  DD  DUMMY
+//* ¬=x'5f'; c 'B0'X '5F'X

@@ -1,0 +1,51 @@
+Re: PCRE2 version 10.40
+Subject:  Re: PCRE2 version 10.40
+From:     Ze'ev Atlas <zatlas1@yahoo.com>
+Date:     5/29/2022, 5:57 PM
+To:       Sam Golob <sbgolob@cbttape.org>
+
+
+--------------------------------- Note11
+Hi Sam
+
+I continue to maintain the PCRE2 library for z/OS (EBCDIC) which
+is now on release 10.40.   For technical reasons I skipped the
+10.39 version.   The main changes in both 10.39 and 10.40 pertain
+to JIT and Unicode, both do not affect the EBCDIC version.
+Regardless, I do keep current as you may see.
+
+Please load these files from the CBT installation:
+
+ZATLAS1.C14.MACLIB.XMI
+ZATLAS1.PCRE2.ASM.XMI
+ZATLAS1.PCRE2.CNTLLIB.XMI
+ZATLAS1.PCRE2.COB.XMI
+ZATLAS1.PCRE2.JCLLIB.XMI
+ZATLAS1.PCRE2.LOADLIB.XMI
+ZATLAS1.PCRE2.SRCE.XMI
+ZATLAS1.PCRE2.TESTLIB.XMI
+
+ZATLAS1.PCRE2.TESTGREP should replace the testgrep.   On next
+release I will try to put the tests into better order.
+
+Installer please note that member TESTGREP id in TSO XMIT
+format to make it FB-80, but its real DCB attributes are
+FB-120.  To use it, you have to RECEIVE it as follows:
+
+  TSO RECEIVE INDS(this.pds(TESTGREP))
+
+  and answer the prompts with DSN(your.chosen.name)
+      and/or VOL(volser)
+
+Please load the attached file for the documentation
+
+Please DO NOT translate the attached file to EBCDIC as there is already
+a copy in the JCLLIB.
+
+---------------------------------
+
+Ze'ev Atlas
+201-801-0378
+201-805-0286 (cell)
+
+

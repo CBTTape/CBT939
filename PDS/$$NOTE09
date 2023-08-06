@@ -1,0 +1,29 @@
+Subject:  PCRE2 10.37 is here
+From:     Ze'ev Atlas <zatlas1@yahoo.com>
+Date:     5/30/2021, 3:53 PM
+To:       Sam Golob <sbgolob@cbttape.org>
+
+Hi Sam
+The new release is here!
+As usual, take these files:
+
+ZATLAS1.PCRE2.ASM.XMI
+ZATLAS1.PCRE2.CNTLLIB.XMI
+ZATLAS1.PCRE2.COB.XMI
+ZATLAS1.PCRE2.JCLLIB.XMI
+ZATLAS1.PCRE2.LOADLIB.XMI
+ZATLAS1.PCRE2.SRCE.XMI
+ZATLAS1.PCRE2.TESTLIB.XMI
+ZATLAS1.C14.MACLIB.XMI
+
+and also add the attached zip file.
+
+Do not try to make the documentation (in the zip file) into EBCDIC!
+There is an EBCDIC version in the JCLLIB
+
+The only release note is:
+
+10.37 release note
+-------------------------
+This is basically a maintenance release with no major changes
+

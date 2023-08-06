@@ -1,0 +1,54 @@
+PCRE2 for z/OS release 10.42
+
+Subject:  PCRE2 for z/OS release 10.42
+From:     Ze'ev Atlas <zatlas1@yahoo.com>
+Date:     12/21/2022, 10:38 PM
+To:       Sam Golob <sbgolob@cbttape.org>
+
+Hi Sam,
+
+I hope all is well with you.
+
+PCRE2 for z/OS release 10.42 is ready for distribution.  It
+replaces the previous version on FILE939.
+
+Note that there is no release 10.41!  It actually came out, but
+was short lived (5 days) because of a major bug that prevented
+parts of it from being compiled.
+
+There is not too much change in the library itself, but John and
+I did some changes in the Rexx API
+
+1. My library functions, no longer print any message to the
+   outside world.  Rather, they optionally provide the caller
+   with error string.
+
+2. John's API has an option 'nosay' that would prevent the API
+   from printing anything, rather it would provide the caller
+   with errors on a stem.
+
+This logical and obvious change (the API being an API) was long
+overdue and was initiated by an actual  user that incorporated
+the library in his product and rightfully wanted to control the
+error messages.
+
+As usual. please take these files from my user and take the
+attached zip file (documentation) as is.  Please do not convert
+the document (in the zip file) to EBCDIC, there is already an
+EBCDIC version in the JCLLIB and you may mention it.
+
+ZATLAS1.PCRE2.$INSTALL
+ZATLAS1.C14.MACLIB.XMI
+ZATLAS1.PCRE2.ASM.XMI
+ZATLAS1.PCRE2.CNTLLIB.XMI
+ZATLAS1.PCRE2.COB.XMI
+ZATLAS1.PCRE2.JCLLIB.XMI
+ZATLAS1.PCRE2.LOADLIB.XMI
+ZATLAS1.PCRE2.SRCE.XMI
+ZATLAS1.PCRE2.TESTLIB.XMI
+
+
+Please acknowledge this email
+
+Ze'ev Atlas
+

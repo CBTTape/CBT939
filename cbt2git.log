@@ -1,0 +1,36 @@
+2023-08-06 08:34:28.099224 - Initialized conversion of CBT939
+2023-08-06 08:34:29.874600 - Received CBT.V505.FILE939.PDS from FILE939.XMI 
+2023-08-06 08:34:29.877358 - Found $$$#DATE.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$$#DATE
+2023-08-06 08:34:29.878375 - Found $$NOTE00.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE00
+2023-08-06 08:34:29.879549 - Found $$NOTE01.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE01
+2023-08-06 08:34:29.880610 - Found $$NOTE06.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE06
+2023-08-06 08:34:29.881585 - Found $$NOTE07.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE07
+2023-08-06 08:34:29.882596 - Found $$NOTE08.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE08
+2023-08-06 08:34:29.883526 - Found $$NOTE09.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE09
+2023-08-06 08:34:29.884454 - Found $$NOTE10.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE10
+2023-08-06 08:34:29.885326 - Found $$NOTE11.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE11
+2023-08-06 08:34:29.886367 - Found $$NOTE12.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$$NOTE12
+2023-08-06 08:34:29.887377 - Found $EBCDIC.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$EBCDIC
+2023-08-06 08:34:29.888323 - Found $INSTALL.rexx (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/$INSTALL
+2023-08-06 08:34:29.889256 - Found @FILE939.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/@FILE939
+2023-08-06 08:34:30.093784 - Found ASM.xmi (application/xmit) in CBT.V505.FILE939.PDS
+2023-08-06 08:34:30.113511   - Received to CBT939/PCRE2.ASM
+2023-08-06 08:34:30.343536 - Found CNTL.xmi (application/xmit) in CBT.V505.FILE939.PDS
+2023-08-06 08:34:30.383502   - Received to CBT939/PCRE2.CNTLLIB
+2023-08-06 08:34:30.536396 - Found COB.xmi (application/xmit) in CBT.V505.FILE939.PDS
+2023-08-06 08:34:30.554614   - Received to CBT939/PCRE2.COB
+2023-08-06 08:34:30.879090 - Found C14MACLB.xmi (application/xmit) in CBT.V505.FILE939.PDS
+2023-08-06 08:34:30.934486   - Received to CBT939/C14.MACLIB
+2023-08-06 08:34:31.188183 - Found JCL.xmi (application/xmit) in CBT.V505.FILE939.PDS
+2023-08-06 08:34:31.234159   - Received to CBT939/PCRE2.JCLLIB
+2023-08-06 08:34:31.235436 - Found LICENCE.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/LICENCE
+2023-08-06 08:34:31.873103 - Found LOADLIB.xmi (application/xmit) in CBT.V505.FILE939.PDS
+2023-08-06 08:34:31.928203   - Received RECFM=U data, stored XMIT file as CBT939/LOADLIB.xmi
+2023-08-06 08:34:31.928263 - Found PCRE2DOC.zip (application/zip), trying to unzip
+2023-08-06 08:34:31.928408 - Found PCRE2DOC.zip (application/zip), extracting to CBT939/PCRE2DOC
+2023-08-06 08:34:31.935864 - Found REXXAPI.txt (text/plain) in CBT.V505.FILE939.PDS, moved to PDS/REXXAPI
+2023-08-06 08:34:33.903254 - Found SRCE.xmi (application/xmit) in CBT.V505.FILE939.PDS
+2023-08-06 08:34:33.952756   - Received to CBT939/PCRE2.SRCE
+2023-08-06 08:34:33.952874 - Found TESTGREP.x-mp4a-latm containing audio/x-mp4a-latm, moved to PDS/TESTGREP
+2023-08-06 08:34:36.641452 - Found TESTLIB.xmi (application/xmit) in CBT.V505.FILE939.PDS
+2023-08-06 08:34:36.683301   - Received to CBT939/PCRE2.TESTLIB
