@@ -1,0 +1,24 @@
+//ZATLAS1C JOB (12345678),ZATLAS1,MSGCLASS=H,REGION=0M,
+//        MSGLEVEL=(1,1),CLASS=A,NOTIFY=&SYSUID
+//*******************************************************
+//DELETE  EXEC PGM=IDCAMS
+//SYSPRINT DD  DUMMY
+//SYSIN    DD  *
+ DELETE  (ZATLAS1.PCRE2.REXXOUTJ)
+ SET MAXCC = 0
+//*******************************************************
+//CREATE  EXEC PGM=IEFBR14
+//DCBOUTJ  DD  DSN=ZATLAS1.PCRE2.REXXOUTJ,
+//             DISP=(NEW,CATLG,DELETE),
+//             DCB=(DSORG=PS,RECFM=FB,LRECL=80),
+//             UNIT=SYSDA,SPACE=(TRK,(5,5))
+//*******************************************************
+//*RUNIT1O EXEC PGM=IRXJCL,PARM='TSTJNTHN',COND=(0,NE)
+//RUNIT1O EXEC PGM=IRXJCL,PARM='TSTJNTH1',COND=(0,NE)
+//STEPLIB  DD  DISP=SHR,DSN=ZATLAS1.PCRE2.LOADLIB
+//SYSEXEC  DD  DISP=SHR,DSN=ZATLAS1.PCRE2.CNTLLIB
+//SYSIN    DD  *
+//SYSPRINT DD  SYSOUT=*
+//SYSTSPRT DD  SYSOUT=*
+//PCREDUMP DD  DISP=MOD,DSN=ZATLAS1.PCRE2.REXXOUTJ
+//*******************************************************

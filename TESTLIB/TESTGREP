@@ -1,0 +1,637 @@
+Testing pcre2grep -V
+pcre2grep version 10.44 2024-06-07
+RC=0
+Testing pcre2grep main features
+---------------------------- Test 1 ------------------------------
+PATTERN at the start of a line.
+In the middle of a line, PATTERN appears.
+Check up on PATTERN near the end.
+RC=0
+---------------------------- Test 2 ------------------------------
+PATTERN at the start of a line.
+RC=0
+---------------------------- Test 3 ------------------------------
+7:PATTERN at the start of a line.
+8:In the middle of a line, PATTERN appears.
+10:This pattern is in lower case.
+623:Check up on PATTERN near the end.
+RC=0
+---------------------------- Test 4 ------------------------------
+
+RC=0
+---------------------------- Test 5 ------------------------------
+PCRE2.TESTLIB(GRPIN):7:PATTERN at the start of a line.
+PCRE2.TESTLIB(GRPIN):8:In the middle of a line, PATTERN appears.
+PCRE2.TESTLIB(GRPIN):10:This pattern is in lower case.
+PCRE2.TESTLIB(GRPIN):623:Check up on PATTERN near the end.
+PCRE2.TESTLIB(GRPINX):3:Here is the pattern again.
+PCRE2.TESTLIB(GRPINX):5:Pattern
+PCRE2.TESTLIB(GRPINX):42:This line contains pattern not on a line by itself.
+RC=0
+---------------------------- Test 6 ------------------------------
+7:PATTERN at the start of a line.
+8:In the middle of a line, PATTERN appears.
+10:This pattern is in lower case.
+623:Check up on PATTERN near the end.
+3:Here is the pattern again.
+5:Pattern
+42:This line contains pattern not on a line by itself.
+RC=0
+---------------------------- Test 7 ------------------------------
+PCRE2.TESTLIB(GRPIN)
+PCRE2.TESTLIB(GRPINX)
+RC=0
+---------------------------- Test 8 ------------------------------
+PCRE2.TESTLIB(GRPIN)
+RC=0
+---------------------------- Test 9 ------------------------------
+RC=0
+---------------------------- Test 10 -----------------------------
+RC=1
+---------------------------- Test 11 -----------------------------
+1:This is a second file of input for the pcregrep tests.
+2:
+4:
+5:Pattern
+6:That time it was on a line by itself.
+7:
+8:To pat or not to pat, that is the question.
+9:
+10:complete pair
+11:of lines
+12:
+13:That was a complete pair
+14:of lines all by themselves.
+15:
+16:complete pair
+17:of lines
+18:
+19:And there they were again, to check line numbers.
+20:
+21:one
+22:two
+23:three
+24:four
+25:five
+26:six
+27:seven
+28:eight
+29:nine
+30:ten
+31:eleven
+32:twelve
+33:thirteen
+34:fourteen
+35:fifteen
+36:sixteen
+37:seventeen
+38:eighteen
+39:nineteen
+40:twenty
+41:
+43:This is the last line of this file.
+RC=0
+---------------------------- Test 12 -----------------------------
+Pattern
+RC=0
+---------------------------- Test 13 -----------------------------
+Here is the pattern again.
+That time it was on a line by itself.
+This line contains pattern not on a line by itself.
+RC=0
+---------------------------- Test 14 -----------------------------
+PCRE2.TESTLIB(GRPINX):To pat or not to pat, that is the question.
+RC=0
+---------------------------- Test 15 -----------------------------
+pcre2grep: Error in command-line regex at offset 4: quantifier does not follow a repeatable item
+RC=2
+---------------------------- Test 16 -----------------------------
+pcre2grep: failed to test next file PCRE2.TESTLIB(NOSUCH)
+RC=1
+---------------------------- Test 19 -----------------------------
+Pattern
+RC=0
+---------------------------- Test 21 -----------------------------
+24:four
+25-five
+26-six
+27-seven
+--
+34:fourteen
+35-fifteen
+36-sixteen
+37-seventeen
+RC=0
+---------------------------- Test 22 -----------------------------
+21-one
+22-two
+23-three
+24:four
+--
+31-eleven
+32-twelve
+33-thirteen
+34:fourteen
+RC=0
+---------------------------- Test 23 -----------------------------
+one
+two
+three
+four
+five
+six
+seven
+--
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+RC=0
+---------------------------- Test 24 -----------------------------
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+
+This line contains pattern not on a line by itself.
+This is the last line of this file.
+RC=0
+---------------------------- Test 25 -----------------------------
+15-
+16-complete pair
+17-of lines
+18-
+19-And there they were again, to check line numbers.
+20-
+21-one
+22-two
+23-three
+24:four
+25-five
+26-six
+27-seven
+28-eight
+29-nine
+30-ten
+31-eleven
+32-twelve
+33-thirteen
+34:fourteen
+RC=0
+---------------------------- Test 26 -----------------------------
+
+complete pair
+of lines
+
+And there they were again, to check line numbers.
+
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+
+This line contains pattern not on a line by itself.
+This is the last line of this file.
+RC=0
+---------------------------- Test 27 -----------------------------
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+
+This line contains pattern not on a line by itself.
+This is the last line of this file.
+RC=0
+---------------------------- Test 28 -----------------------------
+14-of lines all by themselves.
+15-
+16-complete pair
+17-of lines
+18-
+19-And there they were again, to check line numbers.
+20-
+21-one
+22-two
+23-three
+24:four
+25-five
+26-six
+27-seven
+28-eight
+29-nine
+30-ten
+31-eleven
+32-twelve
+33-thirteen
+34:fourteen
+RC=0
+---------------------------- Test 29 -----------------------------
+of lines all by themselves.
+
+complete pair
+of lines
+
+And there they were again, to check line numbers.
+
+one
+two
+three
+four
+five
+six
+seven
+eight
+nine
+ten
+eleven
+twelve
+thirteen
+fourteen
+fifteen
+sixteen
+seventeen
+eighteen
+nineteen
+twenty
+
+This line contains pattern not on a line by itself.
+This is the last line of this file.
+RC=0
+---------------------------- Test 30 -----------------------------
+PCRE2.TESTLIB(GRPIN)-4-features should be added at the end, because some of the tests involve the
+PCRE2.TESTLIB(GRPIN)-5-output of line numbers, and we don't want these to change.
+PCRE2.TESTLIB(GRPIN)-6-
+PCRE2.TESTLIB(GRPIN):7:PATTERN at the start of a line.
+PCRE2.TESTLIB(GRPIN):8:In the middle of a line, PATTERN appears.
+PCRE2.TESTLIB(GRPIN)-9-
+PCRE2.TESTLIB(GRPIN):10:This pattern is in lower case.
+--
+PCRE2.TESTLIB(GRPIN)-620-PUT NEW DATA ABOVE THIS LINE.
+PCRE2.TESTLIB(GRPIN)-621-=============================
+PCRE2.TESTLIB(GRPIN)-622-
+PCRE2.TESTLIB(GRPIN):623:Check up on PATTERN near the end.
+--
+PCRE2.TESTLIB(GRPINX)-1-This is a second file of input for the pcregrep tests.
+PCRE2.TESTLIB(GRPINX)-2-
+PCRE2.TESTLIB(GRPINX):3:Here is the pattern again.
+PCRE2.TESTLIB(GRPINX)-4-
+PCRE2.TESTLIB(GRPINX):5:Pattern
+--
+PCRE2.TESTLIB(GRPINX)-39-nineteen
+PCRE2.TESTLIB(GRPINX)-40-twenty
+PCRE2.TESTLIB(GRPINX)-41-
+PCRE2.TESTLIB(GRPINX):42:This line contains pattern not on a line by itself.
+RC=0
+---------------------------- Test 31 -----------------------------
+PCRE2.TESTLIB(GRPIN):7:PATTERN at the start of a line.
+PCRE2.TESTLIB(GRPIN):8:In the middle of a line, PATTERN appears.
+PCRE2.TESTLIB(GRPIN)-9-
+PCRE2.TESTLIB(GRPIN):10:This pattern is in lower case.
+PCRE2.TESTLIB(GRPIN)-11-
+PCRE2.TESTLIB(GRPIN)-12-Here follows a whole lot of stuff that makes the file over 24KiB long.
+PCRE2.TESTLIB(GRPIN)-13-
+--
+PCRE2.TESTLIB(GRPIN):623:Check up on PATTERN near the end.
+PCRE2.TESTLIB(GRPIN)-624-This is the last line of this file.
+--
+PCRE2.TESTLIB(GRPINX):3:Here is the pattern again.
+PCRE2.TESTLIB(GRPINX)-4-
+PCRE2.TESTLIB(GRPINX):5:Pattern
+PCRE2.TESTLIB(GRPINX)-6-That time it was on a line by itself.
+PCRE2.TESTLIB(GRPINX)-7-
+PCRE2.TESTLIB(GRPINX)-8-To pat or not to pat, that is the question.
+--
+PCRE2.TESTLIB(GRPINX):42:This line contains pattern not on a line by itself.
+PCRE2.TESTLIB(GRPINX)-43-This is the last line of this file.
+RC=0
+---------------------------- Test 32 -----------------------------
+PCRE2.TESTLIB(GRPINX)
+RC=0
+---------------------------- Test 33 -----------------------------
+pcre2grep: failed to test next file PCRE2.TESTLIB(NOSUCH)
+RC=1
+---------------------------- Test 34 -----------------------------
+RC=1
+---------------------------- Test 39 ------------------------------
+This is a line before the binary zero.
+This line contains a binary zero here >?< for testing.
+RC=0
+---------------------------- Test 40 ------------------------------
+This line contains a binary zero here >?< for testing.
+This is a line after the binary zero.
+RC=0
+---------------------------- Test 43 ------------------------------
+595:before
+595:zero
+596:zero
+597:after
+597:zero
+RC=0
+---------------------------- Test 44 ------------------------------
+595:before
+595:zero
+596:zero
+597:after
+597:zero
+RC=0
+---------------------------- Test 45 ------------------------------
+10:pattern
+595:binary
+596:binary
+597:binary
+RC=0
+---------------------------- Test 46 ------------------------------
+pcre2grep: Error in 1st command-line regex at offset 8: unmatched closing parenthesis
+RC=2
+pcre2grep: Error in 2nd command-line regex at offset 9: missing closing parenthesis
+RC=2
+pcre2grep: Error in 3rd command-line regex at offset 9: missing terminating ¨ for character class
+RC=2
+pcre2grep: Error in 4th command-line regex at offset 9: missing terminating ¨ for character class
+RC=2
+---------------------------- Test 50 ------------------------------
+RC=1
+---------------------------- Test 52 ------------------------------
+fox Ý1;31mjumpsÝ0m
+This time it Ý1;31mjumpsÝ0m and Ý1;31mjumpsÝ0m and Ý1;31mjumpsÝ0m.
+RC=0
+---------------------------- Test 53 ------------------------------
+36976,
+36994,
+37028,
+37070,
+37087,
+RC=0
+---------------------------- Test 54 ------------------------------
+595:15,6
+595:33,4
+596:28,4
+597:15,5
+597:32,4
+RC=0
+---------------------------- Test 55 -----------------------------
+Here is the Ý1;31mpatternÝ0m again.
+That time it was on a Ý1;31mline by itselfÝ0m.
+This line contains Ý1;31mpatternÝ0m not on a Ý1;31mline by itselfÝ0m.
+RC=0
+---------------------------- Test 58 -----------------------------
+PATTERN at the start of a line.
+In the middle of a line, PATTERN appears.
+Check up on PATTERN near the end.
+RC=0
+---------------------------- Test 59 -----------------------------
+PATTERN at the start of a line.
+In the middle of a line, PATTERN appears.
+Check up on PATTERN near the end.
+RC=0
+---------------------------- Test 60 -----------------------------
+PATTERN at the start of a line.
+In the middle of a line, PATTERN appears.
+Check up on PATTERN near the end.
+RC=0
+---------------------------- Test 61 -----------------------------
+PATTERN at the start of a line.
+In the middle of a line, PATTERN appears.
+Check up on PATTERN near the end.
+RC=0
+---------------------------- Test 64 ------------------------------
+appears
+RC=0
+---------------------------- Test 65 ------------------------------
+pear
+RC=0
+---------------------------- Test 66 ------------------------------
+RC=0
+---------------------------- Test 67 ------------------------------
+RC=0
+---------------------------- Test 68 ------------------------------
+pear
+RC=0
+---------------------------- Test 69 -----------------------------
+1:This is a second file of input for the pcregrep tests.
+2:
+4:
+5:Pattern
+6:That time it was on a line by itself.
+7:
+8:To pat or not to pat, that is the question.
+9:
+10:complete pair
+11:of lines
+12:
+13:That was a complete pair
+14:of lines all by themselves.
+15:
+16:complete pair
+17:of lines
+18:
+19:And there they were again, to check line numbers.
+20:
+21:one
+22:two
+23:three
+24:four
+25:five
+26:six
+27:seven
+28:eight
+29:nine
+30:ten
+31:eleven
+32:twelve
+33:thirteen
+34:fourteen
+35:fifteen
+36:sixteen
+37:seventeen
+38:eighteen
+39:nineteen
+40:twenty
+41:
+43:This is the last line of this file.
+RC=0
+---------------------------- Test 71 -----------------------------
+
+RC=0
+---------------------------- Test 72 -----------------------------
+Ý1;31m01Ý0m02
+RC=0
+---------------------------- Test 73 -----------------------------
+Ý1;31m01Ý0m
+RC=0
+---------------------------- Test 74 -----------------------------
+
+
+RC=0
+---------------------------- Test 75 -----------------------------
+Ý1;31m01Ý0mÝ1;31m02Ý0m
+RC=0
+---------------------------- Test 76 -----------------------------
+Ý1;31m01Ý0m
+Ý1;31m02Ý0m
+RC=0
+---------------------------- Test 77 -----------------------------
+
+
+RC=0
+---------------------------- Test 78 -----------------------------
+Ý1;31m01Ý0m02Ý1;31m03Ý0m040506
+RC=0
+---------------------------- Test 79 -----------------------------
+Ý1;31m01Ý0m
+Ý1;31m03Ý0m
+RC=0
+---------------------------- Test 80 -----------------------------
+RC=1
+---------------------------- Test 81 -----------------------------
+Ý1;31m01Ý0m02
+RC=0
+---------------------------- Test 82 -----------------------------
+Ý1;31m01Ý0m
+RC=0
+---------------------------- Test 83 -----------------------------
+pcre2grep: line 4 of file PCRE2.TESTLIB(GRPIN3) is too long for the internal buffer
+pcre2grep: the maximum buffer size is 100
+pcre2grep: use the --max-buffer-size option to change it
+RC=2
+---------------------------- Test 84 -----------------------------
+PCRE2.TESTLIB(GRPINV):fox jumps
+PCRE2.TESTLIB(GRPINX):complete pair
+PCRE2.TESTLIB(GRPINX):That was a complete pair
+PCRE2.TESTLIB(GRPINX):complete pair
+RC=0
+---------------------------- Test 85 -----------------------------
+PCRE2.TESTLIB(GRPIN3):Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labo
+re et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea comm
+odo consequat. Duis aute irure do
+PCRE2.TESTLIB(GRPIN3):lor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sin
+t occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+RC=0
+---------------------------- Test 102 -----------------------------
+2:
+6:
+8:
+10:
+13:
+15:
+RC=0
+---------------------------- Test 103 -----------------------------
+RC=0
+---------------------------- Test 104 -----------------------------
+2:
+6:
+8:
+10:
+13:
+15:
+RC=0
+---------------------------- Test 105 -----------------------------
+triple:   t1_txt   s1_tag   s_txt   p_tag   p_txt   o_tag   o_txt
+
+triple:   t2_txt   s1_tag   s_txt   p_tag   p_txt   o_tag
+Lorem Ý1;31mipsumÝ0m dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolor
+e magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequ
+at. Duis aute irure do
+lor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat n
+on proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+triple:   t3_txt   s2_tag   s_txt   p_tag   p_txt   o_tag   o_txt
+
+triple:   t4_txt   s1_tag   s_txt   p_tag   p_txt   o_tag   o_txt
+
+triple:   t5_txt   s1_tag   s_txt   p_tag   p_txt   o_tag
+o_txt
+
+triple:   t6_txt   s2_tag   s_txt   p_tag   p_txt   o_tag   o_txt
+
+triple:   t7_txt   s1_tag   s_txt   p_tag   p_txt   o_tag   o_txt
+RC=0
+---------------------------- Test 121 -----------------------------
+This line contains \E and (regex) *meta* Ýcharacters¨.
+RC=0
+---------------------------- Test 122 -----------------------------
+over the lazy dog.
+The word is cat in this line
+RC=0
+---------------------------- Test 123 -----------------------------
+over the lazy dog.
+The word is cat in this line
+RC=0
+---------------------------- Test 127 -----------------------------
+pattern
+RC=0
+---------------------------- Test 128 -----------------------------
+pcre2grep: Requested group 1 cannot be captured.
+pcre2grep: Use --om-capture to increase the size of the capture vector.
+RC=2
+---------------------------- Test 129 -----------------------------
+The quick brown fox jumps over the lazy dog. The quick brown fox jumps over the
+lazy dog. The quick brown fox jumps over the lazy dog. The quick brown fox
+RC=0
+---------------------------- Test 130 -----------------------------
+fox
+fox
+fox
+fox
+RC=0
+---------------------------- Test 131 -----------------------------
+
+RC=0
+---------------------------- Test 139 -----------------------------
+fox jumps
+RC=0
+---------------------------- Test 140 -----------------------------
+The quick brown
+fox jumps
+RC=0
+---------------------------- Test 151 -----------------------------
+Ý1;31mTheÝ0m quick brown
+Ý1;31mThe woÝ0mrd is cat in Ý1;31mthisÝ0m line
+Ý1;31mTheÝ0m caterpillar sat on the mat
+Ý1;31mTheÝ0m snowcat is not an animal
+RC=0

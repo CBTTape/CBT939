@@ -1,0 +1,27 @@
+Subject:  PCRE2 10.38
+From:     Ze'ev Atlas <zatlas1@yahoo.com>
+Date:     10/30/2021, 11:31 PM
+To:       Sam Golob <sbgolob@cbttape.org>
+
+Hi Sam
+release 10.38 is ready
+there is no special release note
+
+Please take files
+ZATLAS1.C14.MACLIB.XMI
+ZATLAS1.PCRE2.ASM.XMI
+ZATLAS1.PCRE2.CNTLLIB.XMI
+ZATLAS1.PCRE2.COB.XMI
+ZATLAS1.PCRE2.JCLLIB.XMI
+ZATLAS1.PCRE2.LOADLIB.XMI
+ZATLAS1.PCRE2.SRCE.XMI
+ZATLAS1.PCRE2.TESTLIB.XMI
+ZATLAS1.PCRE2.$INSTALL
+
+Note that the document IS ALREADY in the JCLLIB
+
+in addition add the attached zip file as is
+
+Ze'ev Atlas
+201-801-0378
+201-805-0286 (cell)

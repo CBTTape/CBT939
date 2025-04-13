@@ -1,0 +1,34 @@
+//ZATLAS1T JOB (12345678),ZATLAS1,MSGCLASS=H,
+//        MSGLEVEL=(1,1),CLASS=A,NOTIFY=&SYSUID
+//***************************************************************
+//***************JCL CREATED BY ZEEV ATLAS  *********************
+//***************************************************************
+//* This JCL tests newline functionality.  Being a foreign
+//* concept to classic z/OS, It is not included in the normal
+//* testing or documentation.  Remember that in order to test
+//* newline functionality, one must introduce x'15' as newline
+//* marker in addition to whatever the record contains.  That
+//* requires adding one more character to the end of the line
+//* and make the RECSIZE 1 larger than before (and affects
+//* clocksize as well).  That may be true for variable records
+//* as well.
+//* I've noticed, but may not guarantee that C i/o chopps the
+//* trailing blanks from SYSIN and add x'15' in their stead.
+//PTEST PROC TEST='-C',MEMBER=DUMMY
+//TEST8 EXEC PGM=PCR2TEST,
+// PARM=&TEST
+//STEPLIB  DD DSN=ZATLAS1.PCRE2.LOADLIB,DISP=SHR
+//SYSPRINT DD SYSOUT=*
+//STDOUT   DD SYSOUT=*   ,LRECL=31000,RECFM=VB,BLKSIZE=31004
+//SYSOUT   DD SYSOUT=*
+//STDERR   DD SYSOUT=*
+//SYSTERM  DD SYSOUT=*
+//SYSERR   DD SYSOUT=*
+//MSGFILE  DD SYSOUT=*
+//SYSPRINT DD SYSOUT=*
+//SYSIN    DD DUMMY        ZATLAS1.TEST.INPUT1
+//TESTOUT  DD DSN=ZATLAS1.PCRE2.TESTLIB(&MEMBER),DISP=SHR
+// PEND
+//*
+// EXEC PTEST,MEMBER=TESTOTE1,
+// TEST='''-d PCRE2.TESTLIB(TESTINE1) DD:TESTOUT'''

@@ -1,0 +1,173 @@
+
+TITLE:Testing pcre2grep -V
+TEST:-V
+TITLE:Testing pcre2grep main features
+TITLE:---------------------------- Test 1 ------------------------------
+TEST:PATTERN PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 2 ------------------------------
+TEST:"¬PATTERN" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 3 ------------------------------
+TEST:-in PATTERN PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 4 ------------------------------
+TEST:-ic PATTERN PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 5 ------------------------------
+TEST:-in PATTERN PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 6 ------------------------------
+TEST:-inh PATTERN PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 7 ------------------------------
+TEST:-il PATTERN PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 8 ------------------------------
+TEST:-l PATTERN PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 9 ------------------------------
+TEST:-q PATTERN PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 10 -----------------------------
+TEST:-q NEVER-PATTERN PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 11 -----------------------------
+TEST:-vn pattern PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 12 -----------------------------
+TEST:-ix pattern PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 13 -----------------------------
+CREATE:seventeen>TEST.TEMP1.GREP
+TEST:-f PCRE2.TESTLIB(GRPLS) -f TEST.TEMP1.GREP PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 14 -----------------------------
+TEST:-w pat PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 15 -----------------------------
+TEST:"abc¬*" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 16 -----------------------------
+TEST:abc PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(NOSUCH)
+TITLE:---------------------------- Test 19 -----------------------------
+TEST:-Mix "Pattern" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 21 -----------------------------
+TEST:-nA3 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 22 -----------------------------
+TEST:-nB3 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 23 -----------------------------
+TEST:-C3 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 24 -----------------------------
+TEST:-A9 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 25 -----------------------------
+TEST:-nB9 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 26 -----------------------------
+TEST:-A9 -B9 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 27 -----------------------------
+TEST:-A10 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 28 -----------------------------
+TEST:-nB10 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 29 -----------------------------
+TEST:-C12 -B10 "four" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 30 -----------------------------
+TEST:-inB3 "pattern" PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 31 -----------------------------
+TEST:-inA3 "pattern" PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 32 -----------------------------
+TEST:-L "fox" PCRE2.TESTLIB(GRPIN) PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 33 -----------------------------
+TEST:"fox" PCRE2.TESTLIB(NOSUCH)
+TITLE:---------------------------- Test 34 -----------------------------
+TEST:-s "fox" PCRE2.TESTLIB(NOSUCH)
+TITLE:---------------------------- Test 39 ------------------------------
+TEST:-A1 "before the binary zero" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 40 ------------------------------
+TEST:-B1 "after the binary zero" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 43 ------------------------------
+TEST:-on "before|zero|after" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 44 ------------------------------
+TEST:-on -e before -ezero -e after PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 45 ------------------------------
+TEST:-on -f  PCRE2.TESTLIB(GRPLS) -e binary PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 46 ------------------------------
+TEST:-e "unopened)" -e abc PCRE2.TESTLIB(GRPIN)
+TEST:-eabc -e "(unclosed" PCRE2.TESTLIB(GRPIN)
+TEST:-eabc -e xyz -e "Ýunclosed" PCRE2.TESTLIB(GRPIN)
+TEST:--regex=123 -eabc -e xyz -e "Ýunclosed" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 50 ------------------------------
+TEST:"¬(abc|def|ghi|jkl)" PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 52 ------------------------------
+TEST:--colour=always jumps PCRE2.TESTLIB(GRPINV)
+TITLE:---------------------------- Test 53 ------------------------------
+TEST:--file-offsets "before|zero|after" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 54 ------------------------------
+TEST:--line-offsets "before|zero|after" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 55 -----------------------------
+TEST:-f PCRE2.TESTLIB(GRPLS) --color=always PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 58 -----------------------------
+TEST:--regex=PATTERN PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 59 -----------------------------
+TEST:--regexp=PATTERN PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 60 -----------------------------
+TEST:--regex PATTERN PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 61 -----------------------------
+TEST:--regexp PATTERN PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 64 ------------------------------
+TEST:-o1 "(?<=PAT)TERN (ap(pear)s)" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 65 ------------------------------
+TEST:-o2 "(?<=PAT)TERN (ap(pear)s)" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 66 ------------------------------
+TEST:-o3 "(?<=PAT)TERN (ap(pear)s)" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 67 ------------------------------
+TEST:-o12 "(?<=PAT)TERN (ap(pear)s)" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 68 ------------------------------
+TEST:--only-matching=2 "(?<=PAT)TERN (ap(pear)s)" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 69 -----------------------------
+TEST:-vn --colour=always pattern PCRE2.TESTLIB(GRPINX)
+TITLE:---------------------------- Test 71 -----------------------------
+TEST:-o "¬01|¬02|¬03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 72 -----------------------------
+TEST:--color=always "¬01|¬02|¬03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 73 -----------------------------
+TEST:-o --colour=always "¬01|¬02|¬03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 74 -----------------------------
+TEST:-o "¬01|02|¬03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 75 -----------------------------
+TEST:--color=always "¬01|02|¬03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 76 -----------------------------
+TEST:-o --colour=always "¬01|02|¬03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 77 -----------------------------
+TEST:-o "¬01|¬02|03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 78 -----------------------------
+TEST:--color=always "¬01|¬02|03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 79 -----------------------------
+TEST:-o --colour=always "¬01|¬02|03" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 80 -----------------------------
+TEST:-o "\b01|\b02" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 81 -----------------------------
+TEST:--color=always "\\b01|\\b02" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 82 -----------------------------
+TEST:-o --colour=always "\\b01|\\b02" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 83 -----------------------------
+TEST:--buffer-size=10 --max-buffer-size=100 "¬a" PCRE2.TESTLIB(GRPIN3)
+TITLE:---------------------------- Test 84 -----------------------------
+CREATE:PCRE2.TESTLIB(GRPIN3)>TEST.TEMP2.GREP
+TEST:--file-list PCRE2.TESTLIB(GRPFLS) --file-list TEST.TEMP2.GREP "fox|complete|t7"
+TITLE:---------------------------- Test 85 -----------------------------
+TEST:--file-list=PCRE2.TESTLIB(GRPFLS) "dolor" PCRE2.TESTLIB(GRPIN3)
+TITLE:---------------------------- Test 102 -----------------------------
+TEST:-n "¬$" PCRE2.TESTLIB(GRPIN3)
+TITLE:---------------------------- Test 103 -----------------------------
+TEST:--only-matching "¬$" PCRE2.TESTLIB(GRPIN3)
+TITLE:---------------------------- Test 104 -----------------------------
+TEST:-n --only-matching "¬$" PCRE2.TESTLIB(GRPIN3)
+TITLE:---------------------------- Test 105 -----------------------------
+TEST:--colour=always "ipsum|" PCRE2.TESTLIB(GRPIN3)
+TITLE:---------------------------- Test 121 -----------------------------
+TEST:-F "\E and (regex)" PCRE2.TESTLIB(GRPINV)
+TITLE:---------------------------- Test 122 -----------------------------
+TEST:-w "cat|dog" PCRE2.TESTLIB(GRPINV)
+TITLE:---------------------------- Test 123 -----------------------------
+TEST:-w "dog|cat" PCRE2.TESTLIB(GRPINV)
+TITLE:---------------------------- Test 127 -----------------------------
+TEST:-o --om-capture=0 "pattern()()()()" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 128 -----------------------------
+TEST:-m1M -o1 --om-capture=0 "pattern()()()()" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 129 -----------------------------
+TEST:-m 2 "fox" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 130 -----------------------------
+TEST:-o -m2 "fox" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 131 -----------------------------
+TEST:-oc -m2 "fox" PCRE2.TESTLIB(GRPIN)
+TITLE:---------------------------- Test 139 -----------------------------
+TEST:--line-buffered "fox" PCRE2.TESTLIB(GRPINV)
+TITLE:---------------------------- Test 140 -----------------------------
+TEST:--buffer-size=10 -A1 "brown" PCRE2.TESTLIB(GRPINV)
+TITLE:---------------------------- Test 151 -----------------------------
+TEST:--colour=always -e this -e The -e "The wo" PCRE2.TESTLIB(GRPINV)
